@@ -1,5 +1,5 @@
 import React from 'react'
 
-export default () => {
-	return null
+export default ({ gameOver, text }) => {
+	return <div>{text}</div>
 }
