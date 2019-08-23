@@ -1,10 +1,12 @@
 import React from 'react'
 import Stage from './Stage'
 import { StartButton, Display } from '../components'
-export default () => {
+import { createStage } from '../gameHelpers'
+
+const Tetris = () => {
 	return (
 		<div>
-			<Stage />
+			<Stage stage={createStage()} />
 			<div>
 				<aside>
 					<div>
@@ -18,3 +20,5 @@ export default () => {
 		</div>
 	)
 }
+
+export default Tetris
