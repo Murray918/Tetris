@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StyledCell } from './Styles/StyledCell'
+import { StyledCell } from './styles/StyledCell'
 import { TETROMINOS } from '../tetrominos'
 
 const Cell = ({ type }) => (
-	<StyledCell type={type} color={TETROMINOS[type].color}>
+	<StyledCell type={'L'} color={TETROMINOS['L'].color}>
 		cell
 	</StyledCell>
 )
