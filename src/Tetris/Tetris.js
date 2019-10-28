@@ -17,7 +17,7 @@ const Tetris = () => {
 
 	// use our hooks
 	const [player, updatePlayerPos, resetPlayer] = usePlayer()
-	const [stage, setStage] = useStage()
+	const [stage, setStage] = useStage(player, resetPlayer)
 
 	// cheat
 	console.log('re-render')
