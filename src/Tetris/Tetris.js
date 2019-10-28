@@ -1,20 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Stage from './Stage'
-import { useStage } from '../CustomHooks'
+import { useStage } from '../CustomHooks/useStage'
+
 import { StartButton, Display } from '../components'
 import {
 	StyledTetrisWrapper,
 	StyledTetris
 } from '../components/styles/StyledTetris'
+import { usePlayer } from '../CustomHooks/usePlayer'
 
 const Tetris = () => {
-	// use our hook
-	const [stage, setStage ] = useStage()
+	// set up our state
+	const [dropTime, setDropTime] = useState()
+	const [gameOver, setGameOver] = useState()
+
+	// use our hooks
+	const [player] = usePlayer()
+	const [stage, setStage] = useStage()
+
+	// cheat
 	console.log(stage)
- 	return (
+
+	return (
 		<StyledTetrisWrapper>
 			<StyledTetris>
-				<Stage stage={createStage(stage)} />
+				<Stage stage={stage} />
 				<div>
 					<aside>
 						<div>
