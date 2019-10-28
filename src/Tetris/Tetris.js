@@ -16,7 +16,7 @@ const Tetris = () => {
 	const [gameOver, setGameOver] = useState()
 
 	// use our hooks
-	const [player] = usePlayer()
+	const [player, updatePlayerPos, resetPlayer] = usePlayer()
 	const [stage, setStage] = useStage()
 
 	// cheat
