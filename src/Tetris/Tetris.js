@@ -54,22 +54,15 @@ const Tetris = () => {
 	}
 
 	const move = ({ keyCode }) => {
-		console.log(keyCode)
 		if (!gameOver) {
-			switch (keyCode) {
-				case 37:
-					movePlayer(-1)
-					break
-				case 39:
-					movePlayer(1)
-					break
-				case 40:
-					dropPlayer()
-				case 38:
-					playerRotate(stage, 1)
-				default:
-					console.log('not a a handled gey')
-					break
+			if (keyCode === 37) {
+				movePlayer(-1)
+			} else if (keyCode === 39) {
+				movePlayer(1)
+			} else if (keyCode === 40) {
+				dropPlayer()
+			} else if (keyCode === 38) {
+				playerRotate(stage, 1)
 			}
 		}
 	}
@@ -79,7 +72,7 @@ const Tetris = () => {
 			<StyledTetris>
 				<Stage stage={stage} />
 				<div>
-					<aside>
+					<aside>  
 						{gameOver ? (
 							<Display gameOver={gameOver} text={'Game Over'} />
 						) : (
