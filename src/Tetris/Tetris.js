@@ -39,6 +39,7 @@ const Tetris = () => {
 
 	const startGame = () => {
 		setStage(createStage())
+		setDropTime(1000)
 		resetPlayer()
 		setGameOver(false)
 	}
@@ -74,6 +75,10 @@ const Tetris = () => {
 			}
 		}
 	}
+
+	useInterval(() => {
+		drop()
+	}, dropTime)
 
 	return (
 		<StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)}>
