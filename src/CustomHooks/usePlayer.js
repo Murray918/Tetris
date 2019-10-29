@@ -9,6 +9,23 @@ export const usePlayer = () => {
 		collided: false
 	})
 
+	const rotate = (matrix, dir) => {
+		//Make the rows into cols(transpose)
+		const rotatedMatrix = matrix.map((_, index) =>
+			matrix.map(col => col[index])
+		)
+		// reverse each row to get a rotated matrix
+		if (dir > 0) return rotatedMatrix.map(row => row.reverse())
+		return rotatedMatrix.reverse()
+	}
+
+	const playerRotate = (stage, dir) => {
+		// this method of cloning only works because our object fits the JSON syntax
+		const clonedPlayer = JSON.parse(JSON.stringify(player))
+		clonedPlayer.tetromino = rotate(clonedPlayer.tetromino, dir)
+		setPlayer(clonedPlayer)
+	}
+
 	const updatePlayerPos = ({ x, y, collided }) => {
 		setPlayer(prev => ({
 			...prev,
@@ -25,5 +42,5 @@ export const usePlayer = () => {
 		})
 	}, [])
 
-	return [player, updatePlayerPos, resetPlayer]
+	return [player, updatePlayerPos, resetPlayer, playerRotate]
 }

@@ -17,7 +17,7 @@ const Tetris = () => {
 	const [gameOver, setGameOver] = useState()
 
 	// use our hooks
-	const [player, updatePlayerPos, resetPlayer] = usePlayer()
+	const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer()
 	const [stage, setStage] = useStage(player, resetPlayer)
 
 	// cheat
@@ -54,6 +54,7 @@ const Tetris = () => {
 	}
 
 	const move = ({ keyCode }) => {
+		console.log(keyCode)
 		if (!gameOver) {
 			switch (keyCode) {
 				case 37:
@@ -64,7 +65,10 @@ const Tetris = () => {
 					break
 				case 40:
 					dropPlayer()
+				case 38:
+					playerRotate(stage, 1)
 				default:
+					console.log('not a a handled gey')
 					break
 			}
 		}
